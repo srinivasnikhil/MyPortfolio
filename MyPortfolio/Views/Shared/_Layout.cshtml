@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyPortfolio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="~/css/Style.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="side-nav">
+        <div class="nav-item"><a class="active" href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a></div>
+        <div class="nav-item"><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></div>
+        <div class="nav-item"><a href="#career"><i class="fa-solid fa-briefcase"></i><span>Career</span></a></div>
+        <div class="nav-item"><a href="#portfolio"><i class="fa-solid fa-images"></i><span>Portfolio</span></a></div>
+        <div class="nav-item"><a href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></div>
+    </nav>
+
+    <aside class="profile-panel text-center">
+        <img src="~/img/profile.jpg" class="profile-photo" alt="Srinivasa Nikhil" />
+        <h1 class="profile-name">Srinivasa Nikhil Mallempati</h1>
+        <div class="profile-role">Full Stack Developer</div>
+        <div class="social mb-3">
+            <a href="https://github.com/srinivasnikhil" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/srinivasanikhil-mallempati" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <button class="btn btn-resume"><i class="fa-solid fa-file-arrow-down me-2"></i>Download CV</button>
+    </aside>
+    
+    <div class="content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+
+            <footer class="text-center py-3">
+                &copy; @DateTime.Now.Year - Nikhil. All Rights Reserved - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </footer>
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
