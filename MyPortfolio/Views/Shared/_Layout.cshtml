@@ -11,6 +11,50 @@
     <link rel="stylesheet" href="~/css/Style.css" asp-append-version="true" />
 </head>
 <body>
+    <!-- MOBILE TOP BAR (visible only on mobile via CSS) -->
+    <header class="mobile-topbar">
+        <button id="hamburger" class="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="brand">Portfolio</div>
+        <a href="~/Docs/My_Resume_Latest.pdf" target="_blank" class="btn btn-primary">Download CV</a>
+    </header>
+
+    <!-- MOBILE PROFILE STRIP (Profile Top: Yes) -->
+    <div class="mobile-profile">
+        <img src="~/img/profile.jpg" alt="Srinivasa Nikhil" class="mobile-profile-photo" />
+        <div class="mobile-profile-meta">
+            <div class="name">Srinivasa Nikhil Mallempati</div>
+            <div class="role">Full Stack .NET Developer</div>
+            <div class="social">
+                <a href="https://github.com/srinivasnikhil" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/srinivasanikhil-mallempati" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE DRAWER + BACKDROP -->
+    <div id="drawerBackdrop" class="backdrop" hidden></div>
+    <nav id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <i class="fa-solid fa-user-gear me-2"></i> Menu
+            </div>
+            <button id="drawerClose" class="drawer-close" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="drawer-nav">
+            <li><a class="drawer-link" href="#home"><i class="fa-solid fa-house me-2"></i>Home</a></li>
+            <li><a class="drawer-link" href="#about"><i class="fa-solid fa-user me-2"></i>About</a></li>
+            <li><a class="drawer-link" href="#career"><i class="fa-solid fa-briefcase me-2"></i>Career</a></li>
+            <li><a class="drawer-link" href="#portfolio"><i class="fa-solid fa-images me-2"></i>Portfolio</a></li>
+            <li><a class="drawer-link" href="#contact"><i class="fa-solid fa-envelope me-2"></i>Contact</a></li>
+        </ul>
+    </nav>
+
+
     <nav class="side-nav">
         <div class="nav-item"><a class="active" href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a></div>
         <div class="nav-item"><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></div>
@@ -39,6 +83,27 @@
             </footer>
         </main>
     </div>
+    <!-- IMAGE MODAL -->
+    <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0 position-relative p-0">
+
+                <!-- Bootstrap Close Button -->
+                <button type="button"
+                        class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+
+                <!-- Image -->
+                <img id="modal-img"
+                     src=""
+                     alt="Project Image"
+                     class="img-fluid rounded shadow-lg"
+                     style="max-height:85vh; width:auto; margin:auto;" />
+            </div>
+        </div>
+    </div>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

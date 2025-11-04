@@ -438,3 +438,304 @@ footer {
         margin-left: 0 !important;
     }
 }
+
+/* Ensure the modal sits above the sidebar and profile panel */
+.modal {
+    z-index: 2000 !important;
+}
+
+/* Make sure modal content isn't restricted by Bootstrap default padding */
+.modal-content {
+    background: none;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    padding: 0;
+}
+
+/* Make enlarged image responsive */
+#modal-img {
+    max-height: 85vh;
+    width: auto;
+}
+
+/* Add close button styling */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 6px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2100;
+    transition: 0.2s;
+}
+
+    .modal-close-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+@media (max-width: 768px) {
+    #modal-img {
+        max-width: 100%;
+        max-height: 80vh;
+    }
+}
+
+/* FORCE modal + backdrop above sidebar and profile panel */
+.modal-backdrop.show {
+    z-index: 5000 !important;
+}
+
+.modal {
+    z-index: 5050 !important;
+}
+
+.modal-dialog {
+    z-index: 5060 !important;
+}
+
+/* Lower sidebar + profile below modal */
+.side-nav,
+.profile-panel {
+    z-index: 1000 !important;
+}
+
+/* Fix stacking context issue (if any transform affects children) */
+body, html, .content {
+    transform: none !important;
+}
+
+#modal-img {
+    cursor: grab;
+    transition: transform 0.15s ease-out;
+}
+
+#modal-img:active {
+    cursor: grabbing;
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+@media (max-width: 768px) {
+    /* Hide desktop sidebar; convert profile panel to top strip */
+    .side-nav {
+        display: none !important;
+    }
+
+    .profile-panel {
+        display: none !important; /* We show the compact mobile profile instead */
+    }
+
+    /* Content becomes full width */
+    .content {
+        margin-left: 0 !important;
+        padding: 16px !important;
+    }
+
+    /* Sections spacing + headings scale down a bit */
+    section.content-section {
+        padding: 22px 0 60px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+        .section-title.in:after {
+            width: 50%;
+        }
+
+    /* Top bar */
+    .mobile-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1200;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 14px;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+    }
+
+        .mobile-topbar .brand {
+            font-weight: 800;
+            letter-spacing: .3px;
+        }
+
+    .hamburger-btn {
+        background: transparent;
+        border: 0;
+        font-size: 24px;
+        line-height: 1;
+        color: #111;
+        padding: 6px 8px;
+        border-radius: 10px;
+    }
+
+        .hamburger-btn:active {
+            transform: translateY(1px);
+        }
+
+    /* Mobile profile strip (Profile Top: Yes) */
+    .mobile-profile {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 12px 14px;
+        background: #fff;
+        border-bottom: 1px solid #f0f0f4;
+    }
+
+    .mobile-profile-photo {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #fff;
+        box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    }
+
+    .mobile-profile-meta .name {
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    .mobile-profile-meta .role {
+        font-weight: 600;
+        color: #8a93a4;
+        margin-top: 2px;
+    }
+
+    .mobile-profile-meta .social a {
+        margin-right: 10px;
+        color: #111;
+        font-size: 18px;
+    }
+
+        .mobile-profile-meta .social a:hover {
+            color: var(--red);
+        }
+
+    /* Drawer (slide-out) */
+    .mobile-drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 82%;
+        max-width: 360px;
+        background: #fff;
+        z-index: 1500;
+        padding: 16px 14px 20px;
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+
+    .drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .drawer-title {
+        font-weight: 800;
+    }
+
+    .drawer-close {
+        background: transparent;
+        border: 0;
+        font-size: 26px;
+        line-height: 1;
+        color: #111;
+        padding: 4px 8px;
+    }
+
+    .drawer-nav {
+        list-style: none;
+        margin: 10px 0 0;
+        padding: 0;
+    }
+
+        .drawer-nav li {
+            margin-bottom: 6px;
+        }
+
+    .drawer-link {
+        display: block;
+        padding: 12px 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #111;
+        font-weight: 700;
+        border: 1px solid #f1f3f5;
+        background: #fff;
+    }
+
+        .drawer-link i {
+            width: 22px;
+            text-align: center;
+            color: #9aa0a6;
+        }
+
+        .drawer-link:hover {
+            border-color: #ffe480;
+            background: #fff8d1;
+            color: #5b4600;
+            box-shadow: 0 8px 18px rgba(255,214,10,.35);
+        }
+
+    /* Dark backdrop for drawer */
+    .backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.42);
+        z-index: 1400;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    /* When drawer is open */
+    body.drawer-open #mobileDrawer {
+        transform: translateX(0);
+    }
+
+    body.drawer-open #drawerBackdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.drawer-open {
+        overflow: hidden;
+    }
+    /* prevent body scroll when drawer open */
+}
+
+/* Keep modal above everything (mobile & desktop) */
+.modal-backdrop.show {
+    z-index: 5000 !important;
+}
+
+.modal, .modal-dialog {
+    z-index: 5060 !important;
+}
+
+/* Hide mobile profile on desktop */
+.mobile-profile {
+    display: none !important;
+}
+
+/* Only show on screens 768px or smaller */
+@media (max-width: 768px) {
+    .mobile-profile {
+        display: flex !important;
+    }
+}
+

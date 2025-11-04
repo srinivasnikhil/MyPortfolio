@@ -165,7 +165,7 @@
     <div class="row g-4 portfolio-grid">
         <div class="col-md-4 item" data-cat="detailed">
             <div class="portfolio-card">
-                <img src="~/img/fullpage1.png" alt="Project One" />
+                <img src="~/img/fullpage1.png" alt="Project One" class="img-thumbnail project-img" data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="img/fullpage1.png" />
                 <div class="p-3">
                     <h6>Government State Client Project</h6>
                     <div class="text-muted small">ASP.NET Core MVC, SQL Server</div>
@@ -174,7 +174,7 @@
         </div>
         <div class="col-md-4 item" data-cat="detailed">
             <div class="portfolio-card">
-                <img src="~/img/edfullpage.png" alt="project two" />
+                <img src="~/img/edfullpage.png" alt="project two" data-bs-toggle="modal" class="img-thumbnail project-img" data-bs-target="#imgModal" data-img-src="img/edfullpage.png" />
                 <div class="p-3">
                     <h6>Executive Speakers Bureau</h6>
                     <div class="text-muted small">ASP.Net Core MVC, SQL Server</div>
@@ -183,7 +183,7 @@
         </div>
         <div class="col-md-4 item" data-cat="detailed">
             <div class="portfolio-card">
-                <img src="~/img/skycopfullpage.png" class="Mockup" />
+                <img src="~/img/skycopfullpage.png" alt="project three" class="img-thumbnail project-img" data-bs-toggle="modal" data-bs-target="#imgModal" data-img-src="img/skycopfullpage.png" />
                 <div class="p-3">
                     <h6>SkyCop Guardian</h6>
                     <div class="text-muted small">ASP.Net Core, Angular</div>
@@ -275,6 +275,7 @@
         </div>
     </div>
 </section>
+
 
 @section Scripts {
     <script>
