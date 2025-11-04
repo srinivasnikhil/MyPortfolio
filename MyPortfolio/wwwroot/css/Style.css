@@ -551,7 +551,7 @@ body, html, .content {
 
     /* Top bar */
     .mobile-topbar {
-        position: sticky;
+        position: fixed;
         top: 0;
         z-index: 1200;
         display: flex;
@@ -560,6 +560,10 @@ body, html, .content {
         padding: 10px 14px;
         background: #fff;
         border-bottom: 1px solid #eee;
+    }
+
+    body{
+        padding-top: 70px;
     }
 
         .mobile-topbar .brand {
@@ -583,12 +587,14 @@ body, html, .content {
 
     /* Mobile profile strip (Profile Top: Yes) */
     .mobile-profile {
+        margin-top: 10px;
         display: flex;
         gap: 12px;
         align-items: center;
         padding: 12px 14px;
         background: #fff;
         border-bottom: 1px solid #f0f0f4;
+        z-index: 1000
     }
 
     .mobile-profile-photo {
