@@ -245,33 +245,34 @@
         </div>
 
         <div class="col-lg-7">
-            <div class="row g-3">
-                <div class="col-12">
-                    <iframe class="w-100" height="220" style="border:0;border-radius:12px"
-                            loading="lazy" allowfullscreen
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDJycg2RP09R2YbZIDrFa6nZ3-hgJjJd1s&q=Tampa"></iframe>
+            <form id="contactform">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <iframe class="w-100" height="220" style="border:0;border-radius:12px"
+                                loading="lazy" allowfullscreen
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDJycg2RP09R2YbZIDrFa6nZ3-hgJjJd1s&q=Tampa"></iframe>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="name" name="name" type="text" class="form-control" placeholder="Full Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="col-md-6">
+                        <input id="email" name="email" type="email" class="form-control" placeholder="Email Address">
+                    </div>
+                    <div class="col-md-6">
+                        <input id="mobile" name="mobile" type="text" class="form-control" placeholder="Mobile No.">
+                    </div>
+                    <div class="col-12">
+                        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Message"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button id="sendmsg" type="submit" class="btn btn-send w-100">Send Message</button>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" placeholder="Full Name">
-                </div>
-                <div class="col-md-6">
-                    <input id="subject" type="text" class="form-control" placeholder="Subject">
-                </div>
-                <div class="col-md-6">
-                    <input id="email" type="email" class="form-control" placeholder="Email Address">
-                </div>
-                <div class="col-md-6">
-                    <input id="mobile" type="text" class="form-control" placeholder="Mobile No.">
-                </div>
-                <div class="col-12">
-                    <textarea id="message" class="form-control" rows="4" placeholder="Message"></textarea>
-                </div>
-                <div class="col-12">
-                    <button id="sendmsg" type="submit" class="btn btn-send w-100">Send Message</button>
-                </div>
-
-
-            </div>
+            </form>
+            
         </div>
     </div>
 </section>
@@ -279,10 +280,61 @@
 
 @section Scripts {
     <script>
-        $("#sendmsg").click(function(){
+        $.validator.addMethod("validmobile", function (value) {
+            return /^[0-9]{10}$/.test(value);
+        }, "Enter valid 10 digit number");
+
+        $("#contactform").validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 3
+                },
+                subject: {
+                    required: true,
+                    minlength: 3
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                mobile: {
+                    required: true,
+                    validmobile: true
+                },
+                message: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+            messages: {
+                name: "Please enter your full name",
+                subject: "Please enter subject",
+                email: "Please enter a valid email address",
+                mobile: "Enter a valid 10 digit number",
+                message: "Please enter your message"
+            },
+            errorClass: "text-danger",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            },
+            submitHandler: function () {
+                sendMessage();
+            }
+        });
+
+        $("#sendmsg").click(function (e) {
+            e.preventDefault();
+            $("#contactform").submit();
+        });
+
+        function sendMessage() {
             var fullname = $("#name").val();
             var subject = $("#subject").val();
-            var email = $("#mobile").val();
+            var email = $("#email").val();
             var mobileno = $("#mobile").val();
             var message = $("#message").val();
 
@@ -303,7 +355,7 @@
                         toastr.Error("Error sending message. Please try again.");
                 }
             });
-        });
+        }
     </script>
         
 }
