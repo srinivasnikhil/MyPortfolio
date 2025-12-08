@@ -202,14 +202,15 @@ jobs:
         publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
         package: publish_output
 
-📚 Key Features to Showcase to Employers
-Category	Features
-Backend	ASP.NET Core MVC, Repository Pattern, Dapper, SQL Server, Model Binding
-Frontend	Bootstrap 5, Responsive UI, JS Animations, Modal Image Viewer
-DevOps	GitHub Actions CI/CD, Azure Deployment, Automated Build/Deploy
-Cloud	Azure App Service, App Configuration, Logging, Environment Management
-Security	SMTP security, environment-secrets, connection string protection
-Architecture	Clean layered structure, scalable design, production-ready
+📚 Key Features
+Category	                 Features
+Backend	               ASP.NET Core MVC, Repository Pattern, Dapper, SQL Server, Model Binding
+Frontend	           Bootstrap 5, Responsive UI, JS Animations, Modal Image Viewer
+DevOps	               GitHub Actions CI/CD, Azure Deployment, Automated Build/Deploy
+Cloud	               Azure App Service, App Configuration, Logging, Environment Management
+Security	           SMTP security, environment-secrets, connection string protection
+Architecture	       Clean layered structure, scalable design, production-ready
+
 🔧 Local Setup Instructions
 Prerequisites
 
