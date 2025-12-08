@@ -24,6 +24,7 @@ Security-focused development and configuration
 Real-world, production-ready application engineering
 
 🛠️ How I Developed This Project (End-to-End Engineering Process)
+
 1️⃣ Planning & System Design
 
 I started by outlining the features and structure of a high-quality personal portfolio:
